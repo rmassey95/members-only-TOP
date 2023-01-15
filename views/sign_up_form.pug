@@ -1,0 +1,27 @@
+extends layout 
+
+block content 
+  h1=title
+  div.container.mb-3
+    form(action="" method="POST")
+      div.mb-3
+        label(for="fname" class="form-label") Enter First Name
+        input(type="text" id="fname" class="form-control" name="fname" placeholder="First Name")  
+      div.mb-3
+        label(for="lname" class="form-label") Enter Last Name
+        input(type="text" id="lname" class="form-control" name="lname" placeholder="Last Name")  
+      div.mb-3
+        label(for="email" class="form-label") Enter Email
+        input(type="email" id="email" class="form-control" name="email" placeholder="Email")  
+      div.mb-3
+        label(for="password" class="form-label") Enter Password
+        input(type="password" id="password" class="form-control" name="password" placeholder="Password")  
+      //- div.mb-3
+      //-   label(for="confPassword" class="form-label") Confirm Password
+      //-   input(type="password" id="confPassword" class="form-control" name="confPassword" placeholder="Confirm Password")  
+      button(type="submit" class="btn btn-primary") Register
+
+  if errors
+    ul 
+      each error in errors 
+        li.text-danger=error.msg

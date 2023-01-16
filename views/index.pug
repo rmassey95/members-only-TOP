@@ -2,6 +2,33 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
-  a(class="btn btn-primary" href="/sign-up" role="button") Register
-  a(class="btn btn-secondary ms-3" href="/sign-in" role="button") Login
+  
+  if !currentUser
+    p Welcome to #{title}
+    a(class="btn btn-primary" href="/sign-up" role="button") Register
+    a(class="btn btn-secondary ms-3" href="/login" role="button") Login
+  else
+    h5 Welcome #{currentUser.f_name}
+    if currentUser.member
+      p You are a member! 
+    else
+      p You are not a member, click here to join: 
+      a(class="btn btn-primary mb-3" href="/join-the-club" role="button") Join The Club
+    form(action="/logout", method="post") 
+      button(class="btn btn-secondary ms-3 mb-3" type="submit") Logout
+
+  .container 
+    each message in messages 
+      h4=message.title 
+      if currentUser
+        if currentUser.member 
+          h6 Author: #{message.user.fullname}
+          h6 Date of message: #{message.timestamp}
+      p=message.text
+      if currentUser
+        if currentUser.isAdmin
+          form(action=`/delete-message/${message._id}`, method="post") 
+            button(class="btn btn-secondary ms-3 mb-3" type="submit") Delete Message
+    if currentUser
+      a(class="btn btn-primary mb-3" href="/create-message" role="button") Create a Message
+

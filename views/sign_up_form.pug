@@ -16,9 +16,12 @@ block content
       div.mb-3
         label(for="password" class="form-label") Enter Password
         input(type="password" id="password" class="form-control" name="password" placeholder="Password")  
-      //- div.mb-3
-      //-   label(for="confPassword" class="form-label") Confirm Password
-      //-   input(type="password" id="confPassword" class="form-control" name="confPassword" placeholder="Confirm Password")  
+      div.mb-3
+        label(for="confPassword" class="form-label") Confirm Password
+        input(type="password" id="confPassword" class="form-control" name="confPassword" placeholder="Confirm Password")  
+      div.mb-3
+        label(for="checkAdmin" class="form-check-label me-2") Is Admin? 
+        input(type="checkbox" id="checkAdmin" class="form-check-input" name="checkAdmin")  
       button(type="submit" class="btn btn-primary") Register
 
   if errors

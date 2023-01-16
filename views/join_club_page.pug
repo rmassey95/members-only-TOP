@@ -1,0 +1,12 @@
+extends layout 
+
+block content 
+  h1=title 
+  if currentUser.member 
+    p You are already a member!
+  else
+    form(action="" method="POST")
+      div.mb-3
+        label(for="passcode" class="form-label") Enter Secret Passcode
+        input(type="password" id="passcode" class="form-control" name="passcode" placeholder="Passcode")   
+      button(class="btn btn-primary mb-2" type="submit") Submit

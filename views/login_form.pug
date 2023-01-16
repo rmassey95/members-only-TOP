@@ -1,0 +1,12 @@
+extends layout 
+
+block content 
+  h1=title
+  form(action="" method="POST")
+    div(class="mb-3 mt-2")
+      label(for="username" class="form-label") Username
+      input(type="text" name="username" class="form-control" id="username" placeholder="Username")
+    div(class="mb-3 mt-2")
+      label(for="password" class="form-label") Password
+      input(type="password" name="password" class="form-control" id="password" placeholder="Password")
+    button(class="btn btn-primary mb-2" type="submit") Login
